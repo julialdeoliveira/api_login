@@ -33,6 +33,17 @@ namespace Data.Repository
             return "Deleted";
             
         }
+    
+
+        public virtual List<T> GetAll()
+        {
+            List<T> list = new List<T>();
+            using (ApiPersonContext apiPersonContext = new ApiPersonContext())
+            {
+                list = apiPersonContext.Set<T>().ToList();
+            }
+            return list;
+        }
 
 
         public virtual T GetById(int Id)

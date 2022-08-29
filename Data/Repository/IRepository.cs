@@ -14,6 +14,8 @@ namespace Data.Repository
 
         string Delete(int Id);
         T GetById(int Id);
+
+        List<T> GetAll();
     }
 
 }

@@ -15,17 +15,26 @@ namespace api_pessoa.Controllers
             this.repository = new PersonRepository();
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public Person GetById(int id)
         {
             PersonRepository personRepository = new PersonRepository();
             return personRepository.GetById(id);
 
         }
+
+        [HttpGet]
+        public List<Person> GetAll()
+        {
+            PersonRepository personRepository = new PersonRepository();
+            return personRepository.GetAll();   
+
+        }
+
         [HttpPost]
         public string Post (Person model)
         {
-            PersonRepository personRepository = new PersonRepository();
+            PersonRepository personRepository = new PersonRepository();   
             return personRepository.Create(model);
         }
         [HttpDelete]
@@ -39,6 +48,7 @@ namespace api_pessoa.Controllers
         public string Update(Person model)
         {
             PersonRepository personRepository= new PersonRepository();
+            
             return repository.Update(model);
             
         }
